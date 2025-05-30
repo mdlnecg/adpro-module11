@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: spring-petclinic-recreate
+  name: spring-petclinic-recreate
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-petclinic-recreate
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: spring-petclinic-recreate
+    spec:
+      containers:
+      - image: springcommunity/spring-petclinic-rest
+        name: spring-petclinic-rest
+        resources: {}
+status: {}
